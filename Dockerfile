@@ -1,4 +1,4 @@
-FROM hub.gap.im/ops/base:bullseye
+FROM debian:bullseye-slim
 
 LABEL maintainer "Seyed Sajjad Shahcheraghian <shgninc@gmail.com>"
 
@@ -13,7 +13,7 @@ RUN set -x \
     && DEBIAN_FRONTEND=noninteractive apt update \
     && DEBIAN_FRONTEND=noninteractive apt dist-upgrade -y \
     && DEBIAN_FRONTEND=noninteractive apt install -y --no-install-recommends \
-	ca-certificates make gcc g++ pkg-config unzip libtool autoconf automake \
+	ca-certificates make gcc g++ pkg-config unzip libtool autoconf automake git vim curl iputils-ping apt-transport-https ca-certificates supervisor procps openssh-client\
 	zlib1g-dev libxslt1-dev libgd-dev libgeoip-dev uuid-dev \
     && cd /tmp \
     ## Openssl
